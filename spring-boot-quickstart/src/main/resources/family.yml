@@ -1,0 +1,18 @@
+family:
+  child:
+    age: 5
+    friends:
+      - gender: male
+        hobby: football
+      - gender: female
+        hobby: sing
+    name: jack
+  family-name: happy family
+  father:
+    age: 33
+    name: jackson
+  mother:
+    alias:
+      - lovely
+      - alice
+    name: MyLittlePony

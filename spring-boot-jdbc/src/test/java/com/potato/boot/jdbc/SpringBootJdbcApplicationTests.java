@@ -1,10 +1,10 @@
-package com.potato.boot.quickstart;
+package com.potato.boot.jdbc;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringBootQuickstartApplicationTests {
+class SpringBootJdbcApplicationTests {
 
     @Test
     void contextLoads() {

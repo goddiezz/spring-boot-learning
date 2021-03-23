@@ -1,13 +1,13 @@
-package com.potato.boot.quickstart;
+package com.potato.boot.jdbc;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringBootQuickstartApplication {
+public class SpringBootJdbcApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringBootQuickstartApplication.class, args);
+        SpringApplication.run(SpringBootJdbcApplication.class, args);
     }
 
 }
