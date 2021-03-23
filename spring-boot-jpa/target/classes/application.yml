@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    #    url: jdbc:mysql://106.14.246.27:3306/db_spring?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    url: jdbc:mysql://127.0.0.1:3306/db_soft1921?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+      #    password: kobe24
+    password: 00000000
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+    show-sql: true
+  thymeleaf:
+    cache: false
+    mode: HTML
+    prefix: classpath:/templates/
+    encoding: utf-8
