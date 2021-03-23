@@ -1,0 +1,57 @@
+###
+POST http://localhost:8080/api/v1/books/upload
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; filename="e.jepg"
+
+< ./e.jpeg
+--WebAppBoundary--
+
+###
+DELETE http://localhost:8080/api/v1/books/111
+Accept: application/json
+
+###
+PUT http://localhost:8080/api/v1/books/
+Content-Type: application/json
+
+{
+  "id": 222,
+  "author": "potatoRice",
+  "title": "vue",
+  "content": "vue",
+  "createTime": "2021-03-09 14:32:48",
+  "readers": []
+}
+
+###
+POST http://localhost:8080/api/v1/books/param
+Content-Type: application/x-www-form-urlencoded
+
+id=111&author=potatoRice&title=java&content=java
+
+###
+POST http://localhost:8080/api/v1/books
+Content-Type: application/json
+
+{  "id": 111,
+  "author": "potatoRice",
+  "title": "java",
+  "content": "java",
+  "createTime": "2021-03-09 14:32:48",
+  "readers": []
+}
+
+###
+GET http://localhost:8080/api/v1/books?id=111
+Accept: application/json
+
+###
+GET http://localhost:8080/api/v1/books/111
+Accept: application/json
+
+###
+
+GET http://localhost:8080/api/v1/books/all
+Accept: application/json
