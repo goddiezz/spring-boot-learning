@@ -21,6 +21,8 @@
                   <option name="javaMapperPath" value="$PROJECT_DIR$/spring-boot-mybatis/src/main/java" />
                   <option name="javaModelPacakge" value="com.potato.boot.mybatis.domain" />
                   <option name="javaModelPath" value="$PROJECT_DIR$/spring-boot-mybatis/src/main/java" />
+                  <option name="javaServiceInterfacePath" value="$PROJECT_DIR$/spring-boot-mybatis/src/main/java" />
+                  <option name="javaServicePath" value="$PROJECT_DIR$/spring-boot-mybatis/src/main/java" />
                   <option name="xmlPackage" value="mapper" />
                   <option name="xmlPath" value="$PROJECT_DIR$/spring-boot-mybatis/src/main/resources" />
                 </UserPackageAndPathInfoByModule>

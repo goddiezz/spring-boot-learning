@@ -1,72 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.potato.boot.mybatis.mapper.ClazzMapper">
-  <resultMap id="BaseResultMap" type="com.potato.boot.mybatis.domain.Clazz">
-    <!--@mbg.generated-->
-    <!--@Table t_clazz-->
-    <id column="clazz_id" jdbcType="INTEGER" property="clazzId" />
-    <result column="clazz_name" jdbcType="VARCHAR" property="clazzName" />
-    <result column="teacher_id" jdbcType="INTEGER" property="teacherId" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    <!--@mbg.generated-->
-    clazz_id, clazz_name, teacher_id
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    <!--@mbg.generated-->
-    select 
-    <include refid="Base_Column_List" />
-    from t_clazz
-    where clazz_id = #{clazzId,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    <!--@mbg.generated-->
-    delete from t_clazz
-    where clazz_id = #{clazzId,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" keyColumn="clazz_id" keyProperty="clazzId" parameterType="com.potato.boot.mybatis.domain.Clazz" useGeneratedKeys="true">
-    <!--@mbg.generated-->
-    insert into t_clazz (clazz_name, teacher_id)
-    values (#{clazzName,jdbcType=VARCHAR}, #{teacherId,jdbcType=INTEGER})
-  </insert>
-  <insert id="insertSelective" keyColumn="clazz_id" keyProperty="clazzId" parameterType="com.potato.boot.mybatis.domain.Clazz" useGeneratedKeys="true">
-    <!--@mbg.generated-->
-    insert into t_clazz
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="clazzName != null">
-        clazz_name,
-      </if>
-      <if test="teacherId != null">
-        teacher_id,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="clazzName != null">
-        #{clazzName,jdbcType=VARCHAR},
-      </if>
-      <if test="teacherId != null">
-        #{teacherId,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.potato.boot.mybatis.domain.Clazz">
-    <!--@mbg.generated-->
-    update t_clazz
-    <set>
-      <if test="clazzName != null">
-        clazz_name = #{clazzName,jdbcType=VARCHAR},
-      </if>
-      <if test="teacherId != null">
-        teacher_id = #{teacherId,jdbcType=INTEGER},
-      </if>
-    </set>
-    where clazz_id = #{clazzId,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.potato.boot.mybatis.domain.Clazz">
-    <!--@mbg.generated-->
-    update t_clazz
-    set clazz_name = #{clazzName,jdbcType=VARCHAR},
-      teacher_id = #{teacherId,jdbcType=INTEGER}
-    where clazz_id = #{clazzId,jdbcType=INTEGER}
-  </update>
+    <resultMap id="clazzMap" type="com.potato.boot.mybatis.domain.Clazz">
+        <id column="clazz_id"  property="clazzId"/>
+        <result column="clazz_name"  property="clazzName"/>
+        <association property="teacher" javaType="com.potato.boot.mybatis.domain.Teacher1">
+            <id column="teacher_id" property="teacherId"/>
+            <result column="teacher_name" property="teacherName"/>
+        </association>
+        <collection property="students" ofType="com.potato.boot.mybatis.domain.Student1">
+            <id column="student_id" property="studentId"/>
+            <result column="student_name" property="studentName"/>
+            <result column="hometown" property="hometown"/>
+        </collection>
+    </resultMap>
+
+    <select id="getClazz" resultMap="clazzMap" parameterType="int">
+        select c.clazz_id, c.clazz_name, t.teacher_id, t.teacher_name, s.student_id, s.student_name, s.hometown
+        from t_clazz c
+                     left join
+                     t_teacher1 t
+                             on c.clazz_id = t.clazz_id
+                     left join
+                     t_student1 s
+                             on c.clazz_id = s.clazz_id
+        where c.clazz_id = #{clazzId}
+    </select>
 </mapper>

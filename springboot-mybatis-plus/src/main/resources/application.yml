@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:mysql://www.potato-rice.top:3306/db_spring?useUnicode=true
+    username: root
+    password: 00000000
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+#\u914D\u7F6Embp
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath*:/mapper/*Mapper.xml
+  type-aliases-package: top.loorave.boot.mybatisplus
