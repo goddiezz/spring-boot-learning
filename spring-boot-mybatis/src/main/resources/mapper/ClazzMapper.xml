@@ -19,10 +19,10 @@
         select c.clazz_id, c.clazz_name, t.teacher_id, t.teacher_name, s.student_id, s.student_name, s.hometown
         from t_clazz c
                      left join
-                     t_teacher1 t
+                     t_teacher t
                              on c.clazz_id = t.clazz_id
                      left join
-                     t_student1 s
+                     t_student s
                              on c.clazz_id = s.clazz_id
         where c.clazz_id = #{clazzId}
     </select>

@@ -13,6 +13,7 @@
         <option value="$PROJECT_DIR$/spring-boot-jdbc/pom.xml" />
         <option value="$PROJECT_DIR$/springboot-mybatis-plus/pom.xml" />
         <option value="$PROJECT_DIR$/spring-boot-aop/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-boot-crawler/pom.xml" />
       </list>
     </option>
   </component>

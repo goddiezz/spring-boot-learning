@@ -1,7 +1,7 @@
 package top.loorzve.boot.mybatisplus.dao;
 
-import top.loorzve.boot.mybatisplus.entity.User;
 import org.apache.ibatis.annotations.Param;
+import top.loorzve.boot.mybatisplus.domain.User;
 
 import java.util.List;
 
